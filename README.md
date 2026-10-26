@@ -14,9 +14,8 @@
 <p align="center"><em>Concept render: current cradle geometry, approximate device
 housing, and a simulated screen. Not a photograph or a tested mounting installation.</em></p>
 
-The idea is simple: a large temperature reading you can glance at, a useful
-secondary airflow reading, and an honest indication when the data is missing.
-No phone, no infotainment replacement and no permanent vehicle wiring.
+A large temperature reading you can glance at, a useful
+secondary airflow reading. No phone, no infotainment replacement and no permanent vehicle wiring.
 
 ## What it does
 
