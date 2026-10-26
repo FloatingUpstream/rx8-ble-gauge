@@ -1,0 +1,64 @@
+exclude: ^third_party/
+repos:
+  - repo: local
+    hooks:
+      - id: clang-format
+        name: clang-format 21 (project C/C++)
+        entry: .venv/bin/clang-format --style=file -i
+        language: system
+        files: \.(c|cc|cpp|cxx|h|hh|hpp|hxx)$
+      - id: ruff-check
+        name: Ruff Python checks
+        entry: .venv/bin/ruff check --fix
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: Ruff Python formatting
+        entry: .venv/bin/ruff format
+        language: system
+        types: [python]
+      - id: simulator-tests
+        name: OBD simulator tests
+        entry: .venv/bin/python -m unittest discover -s simulator -v
+        language: system
+        pass_filenames: false
+        files: ^simulator/.*\.py$
+      - id: clang-tidy
+        name: ESP Clang-Tidy (requires configured SDK)
+        entry: bash tools/tidy.sh
+        language: system
+        pass_filenames: false
+        stages: [manual]
+        files: ^(firmware|ui|protocol)/.*\.(c|cpp|h|hpp)$
+      - id: capture-tests
+        name: Raw BLE capture tests (optional Bleak)
+        entry: .venv/bin/python -m unittest discover -s tests -p test_ble_capture.py -v
+        language: system
+        pass_filenames: false
+        files: ^(tools/capture_ble.py|tests/test_ble_capture.py)$
+      - id: monitor-tests
+        name: Bash monitor lifecycle tests (mock system commands)
+        entry: .venv/bin/python -m unittest discover -s tests -p test_monitor.py -v
+        language: system
+        pass_filenames: false
+        files: ^(tools/monitor.sh|tests/test_monitor.py)$
+      - id: stl-tests
+        name: Independent STL topology tests
+        entry: .venv/bin/python -m unittest discover -s mechanical -p test_stl_validation.py -v
+        language: system
+        pass_filenames: false
+        files: ^mechanical/(validate_stl|test_stl_validation)\.py$
+      - id: mechanical-cad-tests
+        name: Mechanical CAD and committed STL checks (requires FreeCAD)
+        entry: env PYTHONPATH=/usr/lib/freecad/lib /usr/bin/python -m unittest discover -s mechanical -p test_*.py -v
+        language: system
+        pass_filenames: false
+        stages: [manual]
+        files: ^mechanical/
+      - id: desktop-tests
+        name: Native LVGL and ELM integration tests
+        entry: bash tools/test-desktop.sh
+        language: system
+        pass_filenames: false
+        stages: [manual]
+        files: ^(desktop|ui|protocol|tests|simulator)/

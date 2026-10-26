@@ -1,0 +1,7 @@
+dependencies:
+  idf: "==5.5.3"
+  lvgl/lvgl: "==9.5.0"
+  espressif/esp_lvgl_adapter: "==0.3.2"
+  waveshare/qmi8658:
+    version: "==1.0.1"
+    override_path: "${GAUGE_ROOT}/third_party/waveshare__qmi8658"

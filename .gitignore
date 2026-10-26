@@ -1,0 +1,14 @@
+**/build/
+**/managed_components/
+**/sdkconfig
+**/sdkconfig.old
+__pycache__/
+*.pyc
+.venv/
+.idea/
+.local/
+.ruff_cache/
+.env
+.env.local
+/captures/
+*.log

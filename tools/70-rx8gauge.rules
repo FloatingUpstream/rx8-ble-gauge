@@ -1,0 +1,2 @@
+# No default grants. tools/install-device-access.sh generates a boot-local rule
+# for an explicitly supplied USB serial; do not enable vendor-wide access.

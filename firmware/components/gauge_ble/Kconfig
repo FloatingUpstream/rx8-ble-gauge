@@ -1,0 +1,14 @@
+menu "Gauge BLE adapter profile"
+config GAUGE_BLE_SERVICE
+    hex "ELM service UUID (16-bit)"
+    default 0xFFF0
+    range 0x0001 0xFFFF
+config GAUGE_BLE_RX
+    hex "Notification characteristic UUID (16-bit)"
+    default 0xFFF1
+    range 0x0001 0xFFFF
+config GAUGE_BLE_TX
+    hex "Write characteristic UUID (16-bit)"
+    default 0xFFF2
+    range 0x0001 0xFFFF
+endmenu

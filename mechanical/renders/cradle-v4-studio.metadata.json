@@ -1,0 +1,16 @@
+{
+  "blender": "4.5.14 LTS",
+  "stl_sha256": "c87ba10991cd29ccd5393ea581e87dfa37c6dcb859ba639132c8bb093e465777",
+  "cad_sha256": "49c2f828cf237e61ab732ab22c82877903bfa5c9957b8d4d9f1398d5b52ff9df",
+  "screen_sha256": "f98f32d7efba1d0defe6272a1910b1e7c885aec2476ec364f0b5989c290835fe",
+  "screen_source": "Synthetic desktop fixture: coolant 87 C / MAF 12.40 g/s, yellow RX-8 UI; not live vehicle data. The screenshot's LIVE indicator is fixture state.",
+  "cradle": "Exact validated STL; shading only, no geometry modifiers",
+  "device": "Approximate rounded nominal envelope; detailed ports/back curvature unmeasured",
+  "lighting": "Three area softboxes and neutral studio environment",
+  "units": "Source mm converted to Blender metres",
+  "samples": 96,
+  "resolution": [
+    1600,
+    1400
+  ]
+}

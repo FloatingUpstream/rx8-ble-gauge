@@ -1,0 +1,43 @@
+"""Show/preserve the native semicircular cradle; never regenerate over hand edits."""
+
+from pathlib import Path
+
+import FreeCAD as App
+import FreeCADGui as Gui
+from pivy import coin
+
+root = Path(__file__).resolve().parents[1]
+native = root / "mechanical/models/cradle-v4.FCStd"
+doc = next(
+    (
+        candidate
+        for candidate in App.listDocuments().values()
+        if candidate.FileName and Path(candidate.FileName).resolve() == native.resolve()
+    ),
+    None,
+)
+if doc is None:
+    doc = App.openDocument(str(native))
+App.setActiveDocument(doc.Name)
+doc.Label = "Simple domed cradle — semicircular lip"
+for obj in doc.Objects:
+    if obj.ViewObject:
+        obj.ViewObject.Visibility = False
+doc.getObject("ReferenceGeometry").ViewObject.Visibility = True
+for name, color in (
+    ("TopLoadingCradle", (0.28, 0.42, 0.55)),
+    ("DeviceEnvelope", (0.68, 0.70, 0.72)),
+    ("ScreenReference", (0.08, 0.10, 0.12)),
+):
+    obj = doc.getObject(name)
+    obj.ViewObject.Visibility = True
+    obj.ViewObject.ShapeColor = color
+    obj.ViewObject.DisplayMode = "Shaded"
+doc.recompute()
+view = Gui.activeDocument().activeView()
+view.getCameraNode().orientation.setValue(
+    coin.SbRotation(0.4247082, 0.1759199, 0.3398511, 0.8204732)
+)
+view.fitAll()
+Gui.updateGui()
+# Presentation only: no save, regeneration, screenshots or scratch directories.

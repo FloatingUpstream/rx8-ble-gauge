@@ -1,0 +1,4 @@
+# Laptop central only; the existing optional BLE simulator dependencies also satisfy this.
+bleak==3.0.2
+dbus-fast==5.0.25
+pyserial==3.5

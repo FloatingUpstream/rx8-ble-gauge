@@ -1,0 +1,23 @@
+---
+# Checks narrowed to useful embedded C diagnostics.
+# Use ESP Clang, not the host compiler, for Xtensa headers and ABI.
+# Annex K *_s APIs are unavailable on Linux/newlib; keep actual bounds checks,
+# not the blanket warning on standard fprintf/snprintf calls.
+Checks: >
+  -*,
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  portability-*,
+  readability-braces-around-statements,
+  readability-identifier-naming,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-reserved-identifier,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*/(firmware/(main|components)|ui|protocol|desktop)/.*'
+CheckOptions:
+  readability-identifier-naming.FunctionCase: lower_case
+  readability-identifier-naming.VariableCase: lower_case
+  readability-identifier-naming.ParameterCase: lower_case
+  readability-identifier-naming.MacroDefinitionCase: UPPER_CASE

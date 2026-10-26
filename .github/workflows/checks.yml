@@ -1,0 +1,48 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  desktop:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.13.4"
+      - name: Native build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build pkg-config libsdl2-dev libpng-dev
+      - name: Python environment
+        run: |
+          bash tools/bootstrap.sh --no-idf --dev --capture
+          uv pip install --python .venv/bin/python \
+            -c tools/constraints-tools.txt -r simulator/requirements-ble.txt
+      - name: Protocol and desktop tests
+        run: bash tools/test-desktop.sh
+      - name: Simulator and independent STL tests
+        run: |
+          .venv/bin/python -m unittest discover -s simulator -v
+          .venv/bin/python -m unittest discover -s mechanical -p test_stl_validation.py -v
+          .venv/bin/python -m unittest discover -s mechanical -p test_png_privacy.py -v
+      - name: Formatting and source checks
+        run: .venv/bin/pre-commit run --all-files
+
+  firmware:
+    runs-on: ubuntu-24.04
+    container: espressif/idf:v5.5.3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build ESP32-S3 image
+        shell: bash
+        run: |
+          . /opt/esp/idf/export.sh
+          export GAUGE_ROOT="$GITHUB_WORKSPACE"
+          idf.py -C firmware build

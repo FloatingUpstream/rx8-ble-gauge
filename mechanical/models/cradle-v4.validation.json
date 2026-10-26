@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "errors": [],
+  "stl_file": "cradle-v4.stl",
+  "stl_sha256": "c87ba10991cd29ccd5393ea581e87dfa37c6dcb859ba639132c8bb093e465777",
+  "units": "mm by CAD convention; STL itself stores no units",
+  "limits": {
+    "dimension_tolerance_mm": 0.1,
+    "volume_fraction": 0.001
+  },
+  "stl": {
+    "triangles": 40056,
+    "unique_vertices": 20028,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "nonmanifold_vertices": 0,
+    "winding_conflicts": 0,
+    "duplicate_triangles": 0,
+    "degenerate_triangles": 0,
+    "surface_components": 1,
+    "bounds_min_mm": [
+      -38.2191047668457,
+      -27.368928909301758,
+      -2.0000000072549875e-15
+    ],
+    "bounds_max_mm": [
+      38.2181510925293,
+      25.180273056030273,
+      76.57550048828125
+    ],
+    "dimensions_mm": [
+      76.437255859375,
+      52.54920196533203,
+      76.57550048828125
+    ],
+    "signed_volume_mm3": 55590.726697881866,
+    "vertex_matching": "exact coordinates as stored; no welding/repair performed",
+    "bore_samples": [
+      {
+        "angle_degrees": 210,
+        "diameter_mm": 62.18950320086747
+      },
+      {
+        "angle_degrees": 225,
+        "diameter_mm": 62.199325057091215
+      },
+      {
+        "angle_degrees": 240,
+        "diameter_mm": 62.191585704624075
+      },
+      {
+        "angle_degrees": 255,
+        "diameter_mm": 62.19120904000814
+      },
+      {
+        "angle_degrees": 270,
+        "diameter_mm": 62.1940077436619
+      },
+      {
+        "angle_degrees": 285,
+        "diameter_mm": 62.19586520484508
+      },
+      {
+        "angle_degrees": 300,
+        "diameter_mm": 62.19373783857121
+      },
+      {
+        "angle_degrees": 315,
+        "diameter_mm": 62.199333691911136
+      },
+      {
+        "angle_degrees": 330,
+        "diameter_mm": 62.197023200982656
+      }
+    ]
+  },
+  "freecad_mesh": {
+    "closed_solid": true,
+    "nonmanifolds": false,
+    "inconsistent_orientation": false,
+    "self_intersection_pairs": 0,
+    "intersection_facet_samples": []
+  },
+  "cad_reference": {
+    "file": "cradle-v4.FCStd",
+    "sha256": "49c2f828cf237e61ab732ab22c82877903bfa5c9957b8d4d9f1398d5b52ff9df",
+    "object": "TopLoadingCradle",
+    "volume_mm3": 55611.445060652884,
+    "bounds_min_mm": [
+      -38.18623325140949,
+      -27.37150540274607,
+      -1.0000000155431223e-07
+    ],
+    "bounds_max_mm": [
+      38.22142236320245,
+      25.180967864563943,
+      76.58511838921353
+    ],
+    "dimensions_mm": [
+      76.40765561461194,
+      52.55247326731001,
+      76.58511848921354
+    ],
+    "device_envelope": {
+      "diameter_mm": 61.6,
+      "depth_mm": 14.6,
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25881904510252074,
+        -0.9659258262890683,
+        -2.7045923136093912,
+        0.0,
+        0.9659258262890683,
+        0.25881904510252074,
+        43.72469332628706,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "bore": {
+      "diameter_mm": 62.2,
+      "inverse_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.25881904510252074,
+        0.9659258262890683,
+        -41.53481053042994,
+        0.0,
+        -0.9659258262890683,
+        0.25881904510252074,
+        -13.529218939408393,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "section_z_mm": 7.3
+    }
+  },
+  "note": "Read-only. No mesh repair. Digital checks do not prove printed fit or strength.",
+  "path_convention": "Artifact paths are relative to this report's directory",
+  "export_parameters": {
+    "linear_deflection_mm": 0.02,
+    "angular_deflection_radians": 0.1,
+    "relative": false,
+    "mesh_repaired": false
+  }
+}

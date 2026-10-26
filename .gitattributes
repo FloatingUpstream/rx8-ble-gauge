@@ -1,0 +1,7 @@
+*.FCStd binary
+*.blend binary
+*.stl binary
+*.png binary
+
+# Preserve upstream source exactly, including its original whitespace/style.
+third_party/** -whitespace

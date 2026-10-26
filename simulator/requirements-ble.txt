@@ -1,0 +1,5 @@
+# Optional Linux BLE peripheral frontend; separate from standard-library TCP.
+bless==0.3.0
+bleak==3.0.2
+dbus-fast==5.0.25
+dbus-next==0.2.3
