@@ -152,11 +152,6 @@ docs/          hardware, workflows and operating limits
 third_party/   deliberately vendored board support and original licenses
 ```
 
-**No private workspace is required.** Downloaded tools, caches and local captures
-default to ignored `.local/aux/` inside the checkout. `GAUGE_AUX` can select a
-different absolute path. Nothing from a previous project's auxiliary directory
-is needed to build this one.
-
 ## License
 
 Original code, documentation, CAD and artwork: **[The Unlicense](LICENSE)**.
